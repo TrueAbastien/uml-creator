@@ -4,6 +4,7 @@ namespace model
 {
 	class UMLModel
 	{
-
+	public:
+		UMLModel();
 	};
 }

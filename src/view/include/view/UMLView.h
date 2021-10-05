@@ -4,6 +4,7 @@ namespace view
 {
 	class UMLView
 	{
-
+	public:
+		UMLView();
 	};
 }
