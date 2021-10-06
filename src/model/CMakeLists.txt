@@ -8,4 +8,4 @@ add_library(model STATIC ${Sources})
 target_include_directories(model PUBLIC "include")
 
 # Dependencies
-# TODO?
+target_link_libraries(model PUBLIC core)

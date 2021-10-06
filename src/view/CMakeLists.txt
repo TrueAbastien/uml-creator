@@ -8,4 +8,4 @@ add_library(view STATIC ${Sources})
 target_include_directories(view PUBLIC "include")
 
 # Dependencies
-# TODO?
+target_link_libraries(view PUBLIC core)
