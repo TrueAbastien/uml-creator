@@ -5,6 +5,7 @@ file(GLOB Sources "include/view/*.h" "sources/*.cpp")
 
 # Create Library
 add_library(view STATIC ${Sources})
+set_target_properties(view PROPERTIES FOLDER "project")
 target_include_directories(view PUBLIC "include")
 
 # Dependencies
