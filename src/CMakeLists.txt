@@ -8,3 +8,6 @@ add_subdirectory(controller)
 
 # Add Binary
 add_subdirectory(app)
+
+# Add Tools
+add_subdirectory(tools)
