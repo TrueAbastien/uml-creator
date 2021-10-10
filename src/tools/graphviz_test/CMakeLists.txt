@@ -8,4 +8,4 @@ add_executable(graphviz_test ${Sources})
 set_target_properties(graphviz_test PROPERTIES FOLDER "tools")
 
 # Dependencies
-target_link_libraries(graphviz_test PUBLIC cgraph cdt gvc gvplugin_dot_layout)
+target_link_libraries(graphviz_test PUBLIC cgraph gvc)

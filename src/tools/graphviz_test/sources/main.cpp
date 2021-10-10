@@ -6,14 +6,6 @@
 
 int main(int argc, char** argv)
 {
-    // Open File
-    FILE* dot_file = fopen("test.dot", "w");
-    if (dot_file == nullptr)
-    {
-        std::cout << "Couldn't open dot file..." << std::endl;
-        return 1;
-    }
-
     // Define Context
     GVC_t* context = gvContext();
     if (context == nullptr)
@@ -26,34 +18,29 @@ int main(int argc, char** argv)
     Agraph_t* graph = agopen("Test", Agdirected, nullptr);
 
     // Graph Content
-    // -- Nodes
-    Agnode_t* node_1 = agnode(graph, "First", 1);
-    Agnode_t* node_2 = agnode(graph, "Second", 1);
-    // -- Edges
-    Agedge_t* edge_1 = agedge(graph, node_1, node_2, "label", 1);
-    // -- Attributes
-    agsafeset(node_1, "color", "red", "");
+    {
+        // Nodes
+        Agnode_t* node_1 = agnode(graph, "First", 1);
+        Agnode_t* node_2 = agnode(graph, "Second", 1);
 
-    // Print Graph
-    agwrite(graph, stdout);
+        // Edges
+        Agedge_t* edge_1 = agedge(graph, node_1, node_2, "label", 1);
 
-    // Draw Graph
+        // Attributes
+        agsafeset(node_1, "color", "blue", "");
+    }
+
+    // Setup 'Correct' Graph
     gvLayout(context, graph, "dot");
 
     // Export Graph
-    gvRender(context, graph, "dot", dot_file);
-
-    // Generate File
-    int sys = std::system("dot -Tpng test.dot -o test.png");
-    if (sys != 0)
-    {
-        std::cout << "Unable to export the dot file..." << std::endl;
-    }
+    gvRenderFilename(context, graph, "dot", "test.dot");
+    gvRenderFilename(context, graph, "png", "test.png");
 
     // Free Memory
     gvFreeLayout(context, graph);
     agclose(graph);
-    fclose(dot_file);
+    gvFreeContext(context);
 
     return 0;
 }
