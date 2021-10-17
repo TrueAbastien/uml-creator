@@ -1,17 +1,42 @@
 #pragma once
-
+#include <memory>
 #include <view/UMLView.h>
 #include <model/UMLModel.h>
+#include <core/Observer.h>
+#include <core/Definitions.h>
 
 namespace controller
 {
-	class UMLController
+	class InputInterpreterBase;
+
+	class UMLController : public core::Observer<NOTIFICATION_DATA>
 	{
 	private:
-		view::UMLView* m_view;
-		model::UMLModel* m_model;
+
+		view::ViewPtr m_view;
+		model::ModelPtr m_model;
+
+		std::shared_ptr<InputInterpreterBase> m_currentInterpreter;
 		
 	public:
-		UMLController(model::UMLModel*, view::UMLView*);
+
+		UMLController(const model::ModelPtr model, const view::ViewPtr view);
+
+		template <typename T> void setInterpreter();
+
+		void notify(const NOTIFICATION_DATA& data) override;
+
+	protected:
+
+		bool verifyInput(NOTIFICATION_DATA& data);
 	};
+
+	typedef std::shared_ptr<UMLController> ControllerPtr;
+
+	// ----------------------------------------------------------------------------------------- //
+	template <typename T>
+	inline void UMLController::setInterpreter()
+	{
+		m_currentInterpreter = std::make_shared<T>(this);
+	}
 }

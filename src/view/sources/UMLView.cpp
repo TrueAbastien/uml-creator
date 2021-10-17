@@ -3,6 +3,7 @@
 namespace view
 {
     UMLView::UMLView()
+        : m_currentLayout(nullptr)
     {
     }
 }
