@@ -9,4 +9,4 @@ set_target_properties(core PROPERTIES FOLDER "project")
 target_include_directories(core PUBLIC "include")
 
 # Dependencies
-# TODO?
+target_link_libraries(core PUBLIC cgraph gvc)
