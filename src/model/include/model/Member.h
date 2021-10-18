@@ -20,13 +20,20 @@ namespace model
 
 		Visibility m_visibility;
 		std::string m_name;
+		std::string m_className;
 
 	public:
 
-		//
+		virtual uint8_t memberTypeID() const = 0;
 
 	protected:
 
-		Member(const std::string& name, const std::string&);
+		Member(const std::string& name, const std::string& className, const Visibility& visibility, const std::string& kind, const std::string& type);
+
+		std::string visibility_string() const;
+
+	private:
+
+		const std::string __visibilityStringMap[3] = { "-", "#", "+" };
 	};
 }

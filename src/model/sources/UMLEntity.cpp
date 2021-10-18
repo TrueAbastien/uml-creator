@@ -36,4 +36,10 @@ namespace model
 	{
 		return m_uid.compare(entity->getUID()) == 0;
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	bool UMLEntity::isEquals(const std::shared_ptr<UMLEntity>& entity) const
+	{
+		return isEquals(entity.get());
+	}
 }
