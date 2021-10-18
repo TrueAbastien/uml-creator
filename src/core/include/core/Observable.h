@@ -9,10 +9,10 @@ namespace core
     class Observable
     {
     private:
-        std::vector<Obsserver*> m_observers(0);
+        std::vector<Observer<Data>*> m_observers;
 
     public:
-        void add(Observer* obs)
+        void add(Observer<Data>* obs)
         {
             m_observers.push_back(obs);
         }
