@@ -23,7 +23,7 @@ namespace view
 	{
 		if (m_target != nullptr)
 		{
-			m_target->notifyAll(data);
+			m_target->notify(data);
 		}
 	}
 }

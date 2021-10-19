@@ -6,6 +6,6 @@ namespace core
     class Observer
     {
     public:
-        virtual void notify(const Data& data) = 0;
+        virtual void update(const Data& data) = 0;
     };
 }

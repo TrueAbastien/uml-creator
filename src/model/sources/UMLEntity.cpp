@@ -34,7 +34,7 @@ namespace model
 	// ----------------------------------------------------------------------------------------- //
 	bool UMLEntity::isEquals(UMLEntity* entity) const
 	{
-		return m_uid.compare(entity->getUID()) == 0;
+		return m_uid == entity->getUID();
 	}
 
 	// ----------------------------------------------------------------------------------------- //

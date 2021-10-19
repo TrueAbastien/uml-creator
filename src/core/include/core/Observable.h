@@ -21,11 +21,11 @@ namespace core
             m_observers.clear();
         }
 
-        void notifyAll(const Data& data)
+        void notify(const Data& data)
         {
             for (auto obs : m_observers)
             {
-                obs->notify(data);
+                obs->update(data);
             }
         }
     };

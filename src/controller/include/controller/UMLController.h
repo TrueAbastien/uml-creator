@@ -24,7 +24,7 @@ namespace controller
 
 		template <typename T> void setInterpreter();
 
-		void notify(const NOTIFICATION_DATA& data) override;
+		void update(const NOTIFICATION_DATA& data) override;
 
 	protected:
 

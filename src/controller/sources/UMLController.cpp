@@ -10,7 +10,7 @@ namespace controller
     }
 
     // ----------------------------------------------------------------------------------------- //
-    void UMLController::notify(const NOTIFICATION_DATA& data)
+    void UMLController::update(const NOTIFICATION_DATA& data)
     {
         NOTIFICATION_DATA data_copy = data;
         if (verifyInput(data_copy))
