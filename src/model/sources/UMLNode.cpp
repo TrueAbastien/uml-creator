@@ -18,4 +18,10 @@ namespace model
 	{
 		return m_node;
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	UMLNode::DefinitionType UMLNode::getDefinitionType() const
+	{
+		return DefinitionType::CONCRETE;
+	}
 }

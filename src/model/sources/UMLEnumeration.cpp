@@ -42,6 +42,6 @@ namespace model
 		result = "{<<enum>>\\l" + m_type + "|" + result + "}";
 
 		m_node = agnode(graph, &m_type[0], 1);
-		agsafeset(m_node, (char*)&m_type[0], result.c_str(), (char*)"");
+		agsafeset(m_node, &m_type[0], result.c_str(), (char*)"");
 	}
 }

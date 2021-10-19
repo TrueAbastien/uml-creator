@@ -8,11 +8,20 @@ namespace model
 	{
 	public:
 
-		UMLInterface(const std::string& name);
+		typedef std::vector<std::shared_ptr<Method>> Methods;
 
-		void addMethod(const std::shared_ptr<Method>& method);
+	public:
+
+		UMLInterface(const std::string& type);
+
+		bool addMethod(const std::shared_ptr<Method>& method);
 		//
 
+		void render(Agraph_t* graph) override;
+		DefinitionType getDefinitionType() const override;
 
+	private:
+
+		Methods m_methods;
 	};
 }

@@ -5,6 +5,15 @@ namespace model
 {
 	class UMLNode : public UMLEntity
 	{
+	public:
+
+		enum class DefinitionType : uint8_t
+		{
+			CONCRETE,
+			ABSTRACT,
+			INTERFACE
+		};
+
 	protected:
 
 		UMLNode(const std::string& kind, const std::string& type);
@@ -13,6 +22,8 @@ namespace model
 
 		std::string getType() const;
 		Agnode_t* getNode() const;
+
+		virtual DefinitionType getDefinitionType() const;
 
 	protected:
 
