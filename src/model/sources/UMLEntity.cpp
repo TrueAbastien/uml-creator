@@ -4,6 +4,8 @@
 
 namespace model
 {
+	static int freshUID;
+
 	UMLEntity::UMLEntity(const std::string& uid)
 		: m_uid(uid)
 	{
@@ -13,8 +15,8 @@ namespace model
 	// ----------------------------------------------------------------------------------------- //
 	std::string UMLEntity::to_lower(const std::string& data) const
 	{
-		std::string result;
-		std::transform(data.begin(), data.end(), result.begin(),
+		std::string result = data;
+		std::transform(result.begin(), result.end(), result.begin(),
 			[](unsigned char c) { return std::tolower(c); });
 		return result;
 	}

@@ -26,21 +26,16 @@ namespace model
 	void UMLInterface::render(Agraph_t* graph)
 	{
 		std::string result;
-		if (!m_methods.empty())
+		size_t size = m_methods.size();
+		for (size_t ii = 0; ii < size; ++ii)
 		{
-			result = m_methods[0]->toString();
-
-			size_t size = m_methods.size();
-			for (size_t ii = 1; ii < size; ++ii)
-			{
-				result += ("\\l" + m_methods[ii]->toString());
-			}
+			result += (m_methods[ii]->toString() + "\\l");
 		}
 
-		result = "{<<interface>>\\l" + m_type + "|" + result + "}";
+		result = "{\\<\\<interface\\>\\>\\n" + m_type + "|" + result + "}";
 
 		m_node = agnode(graph, &m_type[0], 1);
-		agsafeset(m_node, &m_type[0], result.c_str(), (char*)"");
+		agsafeset(m_node, (char*)"label", result.c_str(), (char*)"");
 	}
 
 	// ----------------------------------------------------------------------------------------- //

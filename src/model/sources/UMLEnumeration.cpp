@@ -28,20 +28,15 @@ namespace model
 	void UMLEnumeration::render(Agraph_t* graph)
 	{
 		std::string result;
-		if (!m_items.empty())
+		size_t size = m_items.size();
+		for (size_t ii = 0; ii < size; ++ii)
 		{
-			result = m_items[0]->toString();
-
-			size_t size = m_items.size();
-			for (size_t ii = 1; ii < size; ++ii)
-			{
-				result += ("\\l" + m_items[ii]->toString());
-			}
+			result += (m_items[ii]->toString() + "\\l");
 		}
 
-		result = "{<<enum>>\\l" + m_type + "|" + result + "}";
+		result = "{\\<\\<enum\\>\\>\\n" + m_type + "|" + result + "}";
 
 		m_node = agnode(graph, &m_type[0], 1);
-		agsafeset(m_node, &m_type[0], result.c_str(), (char*)"");
+		agsafeset(m_node, (char*)"label", result.c_str(), (char*)"");
 	}
 }

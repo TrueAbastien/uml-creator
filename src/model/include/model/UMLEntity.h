@@ -12,8 +12,6 @@ namespace model
 
 		std::string m_uid;
 
-		static int freshUID;
-
 	protected:
 
 		UMLEntity(const std::string& uid);

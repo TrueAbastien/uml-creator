@@ -27,7 +27,7 @@ int main(int argc, char** argv)
         Agnode_t* node_1 = agnode(graph, (char*)"First", 1);
         agsafeset(node_1, (char*)"label", "{First|...| + render()\\l...}", (char*)"");
         Agnode_t* node_2 = agnode(graph, (char*)"Second", 1);
-        agsafeset(node_2, (char*)"label", "{Second| - value : int\\l...| + render()\\l...}", (char*)"");
+        agsafeset(node_2, (char*)"label", "{\\<\\<abstract\\>\\>\\lSecond| - value : int\\l}", (char*)"");
 
         // Edges
         Agedge_t* edge_1 = agedge(graph, node_1, node_2, nullptr, 1);

@@ -52,26 +52,16 @@ namespace model
 
 		// Create the Field vector string result
 		std::string field_result;
-		if (method_index > 0)
+		for (size_t ii = 0; ii < method_index; ++ii)
 		{
-			field_result = m_members[0]->toString();
-
-			for (size_t ii = 1; ii < method_index; ++ii)
-			{
-				field_result += ("\\l" + m_members[ii]->toString());
-			}
+			field_result += (m_members[ii]->toString() + "\\l");
 		}
 
 		// Create the Method vector string result
 		std::string method_result;
-		if (method_index < size - 1)
+		for (size_t ii = method_index; ii < size; ++ii)
 		{
-			method_result = m_members[method_index]->toString();
-
-			for (size_t ii = method_index; ii < size; ++ii)
-			{
-				method_result += ("\\l" + m_members[ii]->toString());
-			}
+			method_result += (m_members[ii]->toString() + "\\l");
 		}
 
 		// Create the final string result
@@ -82,6 +72,6 @@ namespace model
 
 		// Create & Complete the Graph node
 		m_node = agnode(graph, &m_type[0], 1);
-		agsafeset(m_node, &m_type[0], result.c_str(), (char*)"");
+		agsafeset(m_node, (char*)"label", result.c_str(), (char*)"");
 	}
 }

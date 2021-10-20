@@ -16,6 +16,6 @@ namespace model
 	// ----------------------------------------------------------------------------------------- //
 	std::string UMLAbstractClass::title() const
 	{
-		return "<<abstract>>\\l";
+		return "\\<\\<abstract\\>\\>\\n";
 	}
 }
