@@ -3,7 +3,7 @@
 namespace model
 {
 	UMLClass::UMLClass(const std::string& type)
-		: ClassBase("class", type)
+		: ClassBase("class", type, type)
 	{
 	}
 }

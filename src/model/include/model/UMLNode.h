@@ -16,7 +16,7 @@ namespace model
 
 	protected:
 
-		UMLNode(const std::string& kind, const std::string& type);
+		UMLNode(const std::string& kind, const std::string& other, const std::string& type);
 
 	public:
 

@@ -3,7 +3,7 @@
 namespace model
 {
 	UMLAbstractClass::UMLAbstractClass(const std::string& type)
-		: ClassBase("abstract", type)
+		: ClassBase("abstract", type, type)
 	{
 	}
 
@@ -16,6 +16,6 @@ namespace model
 	// ----------------------------------------------------------------------------------------- //
 	std::string UMLAbstractClass::title() const
 	{
-		return "abstract";
+		return "<<abstract>>\\l";
 	}
 }

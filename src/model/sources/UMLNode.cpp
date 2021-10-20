@@ -2,8 +2,8 @@
 
 namespace model
 {
-	UMLNode::UMLNode(const std::string& kind, const std::string& type)
-		: m_type(type), m_node(nullptr), UMLEntity(kind + "." + to_lower(type))
+	UMLNode::UMLNode(const std::string& kind, const std::string& other, const std::string& type)
+		: m_type(type), m_node(nullptr), UMLEntity("node." + kind + "." + to_lower(other))
 	{
 	}
 

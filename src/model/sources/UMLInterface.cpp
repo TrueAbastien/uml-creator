@@ -3,7 +3,7 @@
 namespace model
 {
 	UMLInterface::UMLInterface(const std::string& type)
-		: m_methods(0), UMLNode("interface", type)
+		: m_methods(0), UMLNode("interface", type, type)
 	{
 	}
 

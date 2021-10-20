@@ -2,8 +2,8 @@
 
 namespace model
 {
-	UMLObject::UMLObject(const std::string& type)
-		: ClassBase("object", type)
+	UMLObject::UMLObject(const std::string& name, const std::string& type)
+		: m_name(name), ClassBase("object", name, type)
 	{
 	}
 
@@ -15,5 +15,11 @@ namespace model
 			return ClassBase::addMember(member);
 		}
 		return false;
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	std::string UMLObject::title() const
+	{
+		return m_name + ":";
 	}
 }

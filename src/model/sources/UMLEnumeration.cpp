@@ -20,7 +20,7 @@ namespace model
 
 	// ----------------------------------------------------------------------------------------- //
 	UMLEnumeration::UMLEnumeration(const std::string& type)
-		: UMLNode("enum", type)
+		: UMLNode("enum", type, type)
 	{
 	}
 

@@ -13,7 +13,7 @@ namespace model
 
 	protected:
 
-		ClassBase(const std::string& kind, const std::string& type);
+		ClassBase(const std::string& kind, const std::string& other, const std::string& type);
 
 		virtual std::string title() const;
 

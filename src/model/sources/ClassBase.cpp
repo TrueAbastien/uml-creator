@@ -3,8 +3,8 @@
 
 namespace model
 {
-	ClassBase::ClassBase(const std::string& kind, const std::string& type)
-		: m_members(0), UMLNode(kind, type)
+	ClassBase::ClassBase(const std::string& kind, const std::string& other, const std::string& type)
+		: m_members(0), UMLNode(kind, other, type)
 	{
 	}
 
@@ -75,9 +75,8 @@ namespace model
 		}
 
 		// Create the final string result
-		std::string title = this->title();
 		std::string result = "{" +
-			(title.empty() ? "" : "<<" + title + ">>\\l") + m_type +	// Title
+			this->title() + m_type +									// Title
 			(field_result.empty() ? "" : "|" + field_result) +			// Fields
 			(method_result.empty() ? "" : "|" + method_result) + "}";	// Methods
 
