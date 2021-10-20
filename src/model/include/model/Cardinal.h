@@ -14,6 +14,8 @@ namespace model
 		std::string getRange() const;
 		std::string getTag() const;
 
+		std::string toString() const;
+
 	private:
 
 		std::string m_min, m_max, m_tag;

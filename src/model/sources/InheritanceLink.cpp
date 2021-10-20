@@ -18,12 +18,11 @@ namespace model
 				m_edge = agedge(graph, m_origin->getNode(), m_target->getNode(), nullptr, 1);
 				agsafeset(m_edge, (char*)"arrowtail", (char*)"none", (char*)"");
 
-				// TODO: labels
-
 				if (type == UMLNode::DefinitionType::INTERFACE)
 				{
 					agsafeset(m_edge, (char*)"arrowhead", (char*)"empty", (char*)"");
 					agsafeset(m_edge, (char*)"style", (char*)"dashed", (char*)"");
+					agsafeset(m_edge, (char*)"label", (char*)"implements", (char*)"");
 				}
 				else
 				{

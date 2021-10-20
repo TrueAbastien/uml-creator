@@ -30,4 +30,10 @@ namespace model
 	{
 		return m_tag;
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	std::string Cardinal::toString() const
+	{
+		return getRange() + (m_tag.empty() ? "" : "\\l" + m_tag);
+	}
 }
