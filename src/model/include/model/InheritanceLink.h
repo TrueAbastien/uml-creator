@@ -10,5 +10,10 @@ namespace model
 		InheritanceLink(const std::shared_ptr<UMLNode>& origin, const std::shared_ptr<UMLNode>& target);
 
 		void render(Agraph_t* graph) override;
+
+	protected:
+
+		void registerMap() override;
+		void unregisterMap() override;
 	};
 }

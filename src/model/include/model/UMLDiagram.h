@@ -29,5 +29,7 @@ namespace model
 
 		std::string m_title;
 		Entities m_entities;
+
+		std::shared_ptr<NodeMapper> m_linkMaps;
 	};
 }

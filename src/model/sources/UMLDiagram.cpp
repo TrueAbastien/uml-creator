@@ -5,6 +5,7 @@ namespace model
 	UMLDiagram::UMLDiagram(const std::string& title)
 		: m_title(title), m_entities(0)
 	{
+		m_linkMaps = std::make_shared<NodeMapper>();
 	}
 
 	// ----------------------------------------------------------------------------------------- //
@@ -60,6 +61,8 @@ namespace model
 				return false;
 			}
 		}
+
+		entity->setMapper(m_linkMaps);
 
 		m_entities.push_back(entity);
 		return true;

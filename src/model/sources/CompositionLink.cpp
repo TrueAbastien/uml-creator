@@ -19,4 +19,16 @@ namespace model
 			agsafeset(m_edge, (char*)"headlabel", &(m_cardinal.getRange()[0]), (char*)"");
 		}
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void CompositionLink::registerMap()
+	{
+		m_maps->Add(NodeMapper::Type::COMPOSITION, m_origin->getType(), m_target);
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void CompositionLink::unregisterMap()
+	{
+		m_maps->Remove(NodeMapper::Type::COMPOSITION, m_origin->getType());
+	}
 }

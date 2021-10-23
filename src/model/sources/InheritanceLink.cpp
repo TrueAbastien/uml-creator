@@ -32,4 +32,16 @@ namespace model
 			}
 		}
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void InheritanceLink::registerMap()
+	{
+		m_maps->Add(NodeMapper::Type::INHERITAGE, m_origin->getType(), m_target);
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void InheritanceLink::unregisterMap()
+	{
+		m_maps->Remove(NodeMapper::Type::INHERITAGE, m_origin->getType());
+	}
 }

@@ -19,4 +19,16 @@ namespace model
 			agsafeset(m_edge, (char*)"headlabel", &(m_cardinal.getRange()[0]), (char*)"");
 		}
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void AgregationLink::registerMap()
+	{
+		m_maps->Add(NodeMapper::Type::AGREGATION, m_origin->getType(), m_target);
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void AgregationLink::unregisterMap()
+	{
+		m_maps->Remove(NodeMapper::Type::AGREGATION, m_origin->getType());
+	}
 }

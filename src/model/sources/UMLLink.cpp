@@ -12,4 +12,16 @@ namespace model
 	{
 		return m_edge;
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	std::shared_ptr<UMLNode> UMLLink::getOrigin() const
+	{
+		return m_origin;
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	std::shared_ptr<UMLNode> UMLLink::getTarget() const
+	{
+		return m_target;
+	}
 }

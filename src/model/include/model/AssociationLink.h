@@ -19,5 +19,10 @@ namespace model
 
 		Cardinal m_originCardinal;
 		Cardinal m_targetCardinal;
+
+	protected:
+
+		void registerMap() override;
+		void unregisterMap() override;
 	};
 }

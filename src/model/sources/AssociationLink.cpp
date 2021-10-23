@@ -31,4 +31,18 @@ namespace model
 	{
 		return m_targetCardinal;
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void AssociationLink::registerMap()
+	{
+		m_maps->Add(NodeMapper::Type::ASSOCIATION, m_origin->getType(), m_target);
+		m_maps->Add(NodeMapper::Type::ASSOCIATION, m_target->getType(), m_origin);
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void AssociationLink::unregisterMap()
+	{
+		m_maps->Remove(NodeMapper::Type::ASSOCIATION, m_origin->getType());
+		m_maps->Remove(NodeMapper::Type::ASSOCIATION, m_target->getType());
+	}
 }

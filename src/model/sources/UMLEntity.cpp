@@ -7,7 +7,7 @@ namespace model
 	static int freshUID;
 
 	UMLEntity::UMLEntity(const std::string& uid)
-		: m_uid(uid)
+		: m_uid(uid), m_maps(nullptr)
 	{
 		freshUID = 0;
 	}
@@ -28,6 +28,16 @@ namespace model
 	}
 
 	// ----------------------------------------------------------------------------------------- //
+	void UMLEntity::registerMap()
+	{
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void UMLEntity::unregisterMap()
+	{
+	}
+
+	// ----------------------------------------------------------------------------------------- //
 	std::string UMLEntity::getUID() const
 	{
 		return m_uid;
@@ -43,5 +53,19 @@ namespace model
 	bool UMLEntity::isEquals(const std::shared_ptr<UMLEntity>& entity) const
 	{
 		return isEquals(entity.get());
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void UMLEntity::setMapper(const std::shared_ptr<NodeMapper>& map)
+	{
+		m_maps = map;
+		
+		registerMap();
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	UMLEntity::~UMLEntity()
+	{
+		unregisterMap();
 	}
 }

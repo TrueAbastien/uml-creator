@@ -13,6 +13,8 @@ namespace model
 	public:
 
 		Agedge_t* getEdge() const;
+		std::shared_ptr<UMLNode> getOrigin() const;
+		std::shared_ptr<UMLNode> getTarget() const;
 
 	protected:
 
