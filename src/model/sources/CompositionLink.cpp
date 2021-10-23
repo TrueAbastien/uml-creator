@@ -15,7 +15,8 @@ namespace model
 			m_edge = agedge(graph, m_origin->getNode(), m_target->getNode(), nullptr, 1);
 			agsafeset(m_edge, (char*)"arrowtail", (char*)"diamond", (char*)"");
 			agsafeset(m_edge, (char*)"arrowhead", (char*)"none", (char*)"");
-			agsafeset(m_edge, (char*)"headlabel", &(m_cardinal.toString()[0]), (char*)"");
+			agsafeset(m_edge, (char*)"taillabel", &(m_cardinal.getTag()[0]), (char*)"");
+			agsafeset(m_edge, (char*)"headlabel", &(m_cardinal.getRange()[0]), (char*)"");
 		}
 	}
 }

@@ -15,18 +15,18 @@ namespace model
 			auto type = m_target->getDefinitionType();
 			if ((uint8_t)type >= (uint8_t)m_origin->getDefinitionType())
 			{
-				m_edge = agedge(graph, m_origin->getNode(), m_target->getNode(), nullptr, 1);
-				agsafeset(m_edge, (char*)"arrowtail", (char*)"none", (char*)"");
+				m_edge = agedge(graph, m_target->getNode(), m_origin->getNode(), nullptr, 1);
+				agsafeset(m_edge, (char*)"arrowhead", (char*)"none", (char*)"");
 
 				if (type == UMLNode::DefinitionType::INTERFACE)
 				{
-					agsafeset(m_edge, (char*)"arrowhead", (char*)"empty", (char*)"");
+					agsafeset(m_edge, (char*)"arrowtail", (char*)"empty", (char*)"");
 					agsafeset(m_edge, (char*)"style", (char*)"dashed", (char*)"");
 					agsafeset(m_edge, (char*)"label", (char*)"implements", (char*)"");
 				}
 				else
 				{
-					agsafeset(m_edge, (char*)"arrowhead", (char*)"normal", (char*)"");
+					agsafeset(m_edge, (char*)"arrowtail", (char*)"normal", (char*)"");
 					agsafeset(m_edge, (char*)"style", (char*)"solid", (char*)"");
 				}
 			}

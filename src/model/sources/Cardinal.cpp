@@ -20,6 +20,18 @@ namespace model
 	}
 
 	// ----------------------------------------------------------------------------------------- //
+	Cardinal::Cardinal(const Type& min, const std::string& tag)
+		: Cardinal(min, Type::empty, tag)
+	{
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	Cardinal::Cardinal(const Type& min, const Type& max, const std::string& tag)
+		: Cardinal(_typeString[(uint8_t)min], _typeString[(uint8_t)max], tag)
+	{
+	}
+
+	// ----------------------------------------------------------------------------------------- //
 	std::string Cardinal::getRange() const
 	{
 		return m_min + (m_max.empty() ? "" : ".." + m_max);
