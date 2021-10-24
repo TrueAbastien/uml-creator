@@ -23,12 +23,12 @@ namespace model
 	// ----------------------------------------------------------------------------------------- //
 	void CompositionLink::registerMap()
 	{
-		m_maps->Add(NodeMapper::Type::COMPOSITION, m_origin->getType(), m_target);
+		m_maps->add(NodeMapper::Type::COMPOSITION, m_origin->getType(), m_target);
 	}
 
 	// ----------------------------------------------------------------------------------------- //
 	void CompositionLink::unregisterMap()
 	{
-		m_maps->Remove(NodeMapper::Type::COMPOSITION, m_origin->getType());
+		m_maps->remove(NodeMapper::Type::COMPOSITION, m_origin->getType());
 	}
 }

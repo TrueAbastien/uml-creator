@@ -33,8 +33,9 @@ namespace model
 
 		NodeMapper();
 
-		void Add(const Type& type, const std::string& id, const std::shared_ptr<UMLNode>& target);
-		void Remove(const Type& type, const std::string& id);
-		void Clear(const Type& type);
+		void add(const Type& type, const std::string& id, const std::shared_ptr<UMLNode>& target);
+		void remove(const Type& type, const std::string& id);
+		void clear(const Type& type);
+		std::vector<std::shared_ptr<UMLNode>> get(const Type& type, const std::string& id) const;
 	};
 }
