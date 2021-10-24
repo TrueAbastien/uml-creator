@@ -50,6 +50,12 @@ namespace model
 	}
 
 	// ----------------------------------------------------------------------------------------- //
+	int UMLEntity::verify(const std::shared_ptr<NodeMapper>& maps, std::string& logs) const
+	{
+		return 0;
+	}
+
+	// ----------------------------------------------------------------------------------------- //
 	bool UMLEntity::isEquals(const std::shared_ptr<UMLEntity>& entity) const
 	{
 		return isEquals(entity.get());

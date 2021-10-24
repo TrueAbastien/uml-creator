@@ -22,4 +22,41 @@ namespace model
 	{
 		return m_name + ":";
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	int UMLObject::verify(const std::shared_ptr<NodeMapper>& maps, std::string& logs) const
+	{
+		// Verify Type
+		auto ref = maps->get(m_type);
+		if (ref == nullptr)
+		{
+			logs += "'" + m_type + "' doesn't exist...\n";
+			return 1;
+		}
+		if (ref->getDefinitionType() != UMLNode::DefinitionType::CONCRETE)
+		{
+			logs += "'" + m_name + "' belongs to an abstract type...\n";
+			return 2;
+		}
+
+		// Verify Attributes Recursively
+		// TODO
+
+		// Verify Associations Recursively
+		// TODO
+
+		return 0;
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void UMLObject::registerMap()
+	{
+		m_maps->set(m_name, this);
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void UMLObject::unregisterMap()
+	{
+		m_maps->remove(m_name);
+	}
 }

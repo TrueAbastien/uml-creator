@@ -12,6 +12,12 @@ namespace model
 		bool addMember(const std::shared_ptr<Member>& member) override;
 
 		std::string title() const override;
+		int verify(const std::shared_ptr<NodeMapper>& maps, std::string& logs) const override;
+
+	protected:
+
+		void registerMap() override;
+		void unregisterMap() override;
 
 	private:
 

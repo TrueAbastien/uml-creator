@@ -10,7 +10,7 @@ namespace model
 
 		ObjectDiagram(const std::shared_ptr<ClassDiagram>& model, const std::string& title);
 
-		//
+		int verify(std::string& logs) const override;
 
 	private:
 

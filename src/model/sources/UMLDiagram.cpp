@@ -67,4 +67,10 @@ namespace model
 		m_entities.push_back(entity);
 		return true;
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	std::shared_ptr<NodeMapper> UMLDiagram::getMaps() const
+	{
+		return m_linkMaps;
+	}
 }

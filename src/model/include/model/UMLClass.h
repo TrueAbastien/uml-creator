@@ -8,5 +8,10 @@ namespace model
 	public:
 
 		UMLClass(const std::string& type);
+
+	protected:
+
+		void registerMap() override;
+		void unregisterMap() override;
 	};
 }

@@ -6,4 +6,12 @@ namespace model
 		: UMLDiagram(title)
 	{
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	int ClassDiagram::verify(std::string& logs) const
+	{
+		// TODO ?
+
+		return 0;
+	}
 }

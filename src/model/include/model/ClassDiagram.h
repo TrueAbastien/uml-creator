@@ -9,6 +9,6 @@ namespace model
 
 		ClassDiagram(const std::string& title);
 
-		//
+		int verify(std::string& logs) const override;
 	};
 }

@@ -7,7 +7,7 @@
 namespace model
 {
 	class UMLNode;
-	class UMLLink;
+	class ClassBase;
 
 	class NodeMapper
 	{
@@ -28,6 +28,7 @@ namespace model
 	private:
 
 		std::map<Type, NodeMap> m_maps;
+		std::map<std::string, ClassBase*> m_nodes;
 
 	public:
 
@@ -37,5 +38,10 @@ namespace model
 		void remove(const Type& type, const std::string& id);
 		void clear(const Type& type);
 		std::vector<std::shared_ptr<UMLNode>> get(const Type& type, const std::string& id) const;
+
+		void set(const std::string& id, ClassBase* node);
+		void remove(const std::string& id);
+		void clear();
+		ClassBase* get(const std::string& id);
 	};
 }

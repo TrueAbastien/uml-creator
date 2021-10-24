@@ -21,8 +21,10 @@ namespace model
 
 		std::string getTitle() const;
 		bool addEntity(const std::shared_ptr<UMLEntity>& entity);
+		std::shared_ptr<NodeMapper> getMaps() const;
 		// TODO: getters/setters
 
+		virtual int verify(std::string& logs) const = 0;
 		// TODO: object-model verification
 
 	protected:

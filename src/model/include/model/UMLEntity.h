@@ -33,6 +33,7 @@ namespace model
 
 		virtual void render(Agraph_t* graph) = 0;
 		virtual bool isEquals(UMLEntity* entity) const;
+		virtual int verify(const std::shared_ptr<NodeMapper>& maps, std::string& logs) const;
 		
 		bool isEquals(const std::shared_ptr<UMLEntity>& entity) const;
 		void setMapper(const std::shared_ptr<NodeMapper>& map);

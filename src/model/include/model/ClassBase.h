@@ -20,7 +20,6 @@ namespace model
 	public:
 
 		virtual bool addMember(const std::shared_ptr<Member>& member);
-		//
 
 		void render(Agraph_t* graph) override;
 
