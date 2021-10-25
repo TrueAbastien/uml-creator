@@ -19,6 +19,7 @@ namespace model
 
 		std::string title() const override;
 		int verify(const std::shared_ptr<NodeMapper>& maps, std::string& logs) const override;
+		std::string getLinkUID() const override;
 
 	protected:
 

@@ -3,6 +3,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include "model/Cardinal.h"
 
 namespace model
 {
@@ -16,6 +17,7 @@ namespace model
 		enum class Type : uint8_t
 		{
 			INHERITAGE,
+
 			ASSOCIATION,
 			AGREGATION,
 			COMPOSITION,
@@ -23,7 +25,19 @@ namespace model
 			__size__
 		};
 
-		typedef std::map<std::string, std::vector<std::shared_ptr<UMLNode>>> NodeMap;
+		class Element
+		{
+		public:
+
+			std::shared_ptr<UMLNode> node;
+			Cardinal cardinal;
+
+		public:
+
+			Element(const std::shared_ptr<UMLNode>& _node, const Cardinal& _cardinal);
+		};
+
+		typedef std::map<std::string, std::vector<Element>> NodeMap;
 
 	private:
 
@@ -34,10 +48,10 @@ namespace model
 
 		NodeMapper();
 
-		void add(const Type& type, const std::string& id, const std::shared_ptr<UMLNode>& target);
+		void add(const Type& type, const std::string& id, const std::shared_ptr<UMLNode>& target, const Cardinal& cardinal);
 		void remove(const Type& type, const std::string& id);
 		void clear(const Type& type);
-		std::vector<std::shared_ptr<UMLNode>> get(const Type& type, const std::string& id) const;
+		std::vector<Element> get(const Type& type, const std::string& id) const;
 
 		void set(const std::string& id, ClassBase* node);
 		void remove(const std::string& id);

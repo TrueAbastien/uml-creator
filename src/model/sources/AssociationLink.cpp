@@ -3,7 +3,7 @@
 namespace model
 {
 	AssociationLink::AssociationLink(const std::shared_ptr<UMLNode>& origin, const std::shared_ptr<UMLNode>& target, const Cardinal& originCardinal, const Cardinal& targetCardinal)
-		: m_originCardinal(originCardinal), m_targetCardinal(targetCardinal), UMLLink(origin, target, "association", origin->getType() + "." + target->getType())
+		: m_originCardinal(originCardinal), m_targetCardinal(targetCardinal), UMLLink(origin, target, "association", origin->getLinkUID() + "." + target->getLinkUID())
 	{
 	}
 
@@ -35,14 +35,14 @@ namespace model
 	// ----------------------------------------------------------------------------------------- //
 	void AssociationLink::registerMap()
 	{
-		m_maps->add(NodeMapper::Type::ASSOCIATION, m_origin->getType(), m_target);
-		m_maps->add(NodeMapper::Type::ASSOCIATION, m_target->getType(), m_origin);
+		m_maps->add(NodeMapper::Type::ASSOCIATION, m_origin->getLinkUID(), m_target, m_targetCardinal);
+		m_maps->add(NodeMapper::Type::ASSOCIATION, m_target->getLinkUID(), m_origin, m_originCardinal);
 	}
 
 	// ----------------------------------------------------------------------------------------- //
 	void AssociationLink::unregisterMap()
 	{
-		m_maps->remove(NodeMapper::Type::ASSOCIATION, m_origin->getType());
-		m_maps->remove(NodeMapper::Type::ASSOCIATION, m_target->getType());
+		m_maps->remove(NodeMapper::Type::ASSOCIATION, m_origin->getLinkUID());
+		m_maps->remove(NodeMapper::Type::ASSOCIATION, m_target->getLinkUID());
 	}
 }

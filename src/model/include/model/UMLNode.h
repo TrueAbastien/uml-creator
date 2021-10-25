@@ -26,6 +26,7 @@ namespace model
 
 		virtual DefinitionType getDefinitionType() const;
 		virtual Member::Vector getMembers() const;
+		virtual std::string getLinkUID() const;
 
 	protected:
 

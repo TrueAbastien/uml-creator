@@ -30,4 +30,10 @@ namespace model
 	{
 		return Member::Vector(0);
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	std::string UMLNode::getLinkUID() const
+	{
+		return m_type;
+	}
 }

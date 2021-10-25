@@ -45,7 +45,7 @@ int main(int argc, char** argv)
         diagram->addEntity(std::make_shared<model::InheritanceLink>(dog_class, animal_abs_class));
         diagram->addEntity(std::make_shared<model::InheritanceLink>(animal_abs_class, being_interface));
 
-        diagram->addEntity(std::make_shared<model::CompositionLink>(dog_class, being_interface, model::Cardinal(model::Cardinal::Type::MANY, "relation")));
+        diagram->addEntity(std::make_shared<model::CompositionLink>(dog_class, being_interface, model::Cardinal(model::Cardinal::Many, "relation")));
         
         std::cout << diagram->Export("dog", "png") << std::endl;
     }

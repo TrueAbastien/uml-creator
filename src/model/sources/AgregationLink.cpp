@@ -23,12 +23,12 @@ namespace model
 	// ----------------------------------------------------------------------------------------- //
 	void AgregationLink::registerMap()
 	{
-		m_maps->add(NodeMapper::Type::AGREGATION, m_origin->getType(), m_target);
+		m_maps->add(NodeMapper::Type::AGREGATION, m_origin->getLinkUID(), m_target, m_cardinal);
 	}
 
 	// ----------------------------------------------------------------------------------------- //
 	void AgregationLink::unregisterMap()
 	{
-		m_maps->remove(NodeMapper::Type::AGREGATION, m_origin->getType());
+		m_maps->remove(NodeMapper::Type::AGREGATION, m_origin->getLinkUID());
 	}
 }

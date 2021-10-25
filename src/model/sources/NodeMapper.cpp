@@ -3,6 +3,12 @@
 
 namespace model
 {
+	NodeMapper::Element::Element(const std::shared_ptr<UMLNode>& _node, const Cardinal& _cardinal)
+		: node(_node), cardinal(_cardinal)
+	{
+	}
+
+	// ----------------------------------------------------------------------------------------- //
 	NodeMapper::NodeMapper()
 		: m_nodes{ }
 	{
@@ -13,9 +19,9 @@ namespace model
 	}
 
 	// ----------------------------------------------------------------------------------------- //
-	void NodeMapper::add(const Type& type, const std::string& id, const std::shared_ptr<UMLNode>& target)
+	void NodeMapper::add(const Type& type, const std::string& id, const std::shared_ptr<UMLNode>& target, const Cardinal& cardinal)
 	{
-		m_maps[type][id].push_back(target);
+		m_maps[type][id].push_back(Element(target, cardinal));
 	}
 
 	// ----------------------------------------------------------------------------------------- //
@@ -31,7 +37,7 @@ namespace model
 	}
 
 	// ----------------------------------------------------------------------------------------- //
-	std::vector<std::shared_ptr<UMLNode>> NodeMapper::get(const Type& type, const std::string& id) const
+	std::vector<NodeMapper::Element> NodeMapper::get(const Type& type, const std::string& id) const
 	{
 		return m_maps.at(type).at(id);
 	}

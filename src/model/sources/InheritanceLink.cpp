@@ -3,7 +3,7 @@
 namespace model
 {
 	InheritanceLink::InheritanceLink(const std::shared_ptr<UMLNode>& origin, const std::shared_ptr<UMLNode>& target)
-		: UMLLink(origin, target, "inheritance", origin->getType() + "." + target->getType())
+		: UMLLink(origin, target, "inheritance", origin->getLinkUID() + "." + target->getLinkUID())
 	{
 	}
 
@@ -36,12 +36,12 @@ namespace model
 	// ----------------------------------------------------------------------------------------- //
 	void InheritanceLink::registerMap()
 	{
-		m_maps->add(NodeMapper::Type::INHERITAGE, m_origin->getType(), m_target);
+		m_maps->add(NodeMapper::Type::INHERITAGE, m_origin->getLinkUID(), m_target, Cardinal());
 	}
 
 	// ----------------------------------------------------------------------------------------- //
 	void InheritanceLink::unregisterMap()
 	{
-		m_maps->remove(NodeMapper::Type::INHERITAGE, m_origin->getType());
+		m_maps->remove(NodeMapper::Type::INHERITAGE, m_origin->getLinkUID());
 	}
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <limits>
 
 namespace model
 {
@@ -7,31 +8,20 @@ namespace model
 	{
 	public:
 
-		enum class Type : uint8_t
-		{
-			empty,
-
-			NONE,
-			ONE,
-			MANY,
-
-			__size__
-		};
+		static const int Many = INT_MAX;
+		static const int Null = -1;
 
 	private:
 
-		std::string _typeString[(uint8_t)Type::__size__] =
-		{
-			"", "0", "1", "*"
-		};
+		std::string to_string(int value) const;
 
 	public:
 
-		Cardinal(const std::string& min, const std::string& max = "", const std::string& tag = "");
-		Cardinal(int min, const std::string& tag = "");
+		Cardinal(int min = Cardinal::Null, const std::string& tag = "");
 		Cardinal(int min, int max, const std::string& tag = "");
-		Cardinal(const Type& min, const std::string& tag = "");
-		Cardinal(const Type& min, const Type& max, const std::string& tag = "");
+
+		int getMin() const;
+		int getMax() const;
 
 		std::string getRange() const;
 		std::string getTag() const;
@@ -40,6 +30,7 @@ namespace model
 
 	private:
 
-		std::string m_min, m_max, m_tag;
+		int m_min, m_max;
+		std::string m_tag;
 	};
 }
