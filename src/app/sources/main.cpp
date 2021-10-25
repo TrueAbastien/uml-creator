@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include <controller/UMLController.h>
+#include "Application.h"
 
 // TEMP //
 #include <model/UMLClass.h>
@@ -14,10 +14,8 @@
 
 int main(int argc, char** argv)
 {
-    model::ModelPtr model = std::make_shared<model::UMLModel>();
-    view::ViewPtr view = std::make_shared<view::UMLView>();
-    controller::ControllerPtr controller = std::make_shared<controller::UMLController>(model, view);
-    
+    Application app;
+
     std::cout << "Hello World!" << std::endl; //TEMP
 
     {
@@ -50,5 +48,5 @@ int main(int argc, char** argv)
         std::cout << diagram->Export("dog", "png") << std::endl;
     }
 
-    return 0;
+    return app.Run(argc, argv);
 }

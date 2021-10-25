@@ -26,4 +26,13 @@ namespace view
 			m_target->notify(data);
 		}
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	std::string LayoutBase::awaits(const std::string& msg) const
+	{
+		std::cout << msg;
+		std::string result;
+		std::cin >> result;
+		return result;
+	}
 }
