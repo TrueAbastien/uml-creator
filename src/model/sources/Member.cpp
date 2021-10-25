@@ -8,6 +8,12 @@ namespace model
 	}
 
 	// ----------------------------------------------------------------------------------------- //
+	std::string Member::getName() const
+	{
+		return m_name;
+	}
+
+	// ----------------------------------------------------------------------------------------- //
 	std::string Member::visibility_string() const
 	{
 		return __visibilityStringMap[(uint8_t)m_visibility];

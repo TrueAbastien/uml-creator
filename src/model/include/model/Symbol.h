@@ -14,6 +14,7 @@ namespace model
 		void render(Agraph_t* graph) override;
 
 		virtual std::string toString() const = 0;
+		std::string getType() const;
 
 	protected:
 

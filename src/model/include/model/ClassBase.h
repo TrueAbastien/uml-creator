@@ -7,10 +7,6 @@ namespace model
 {
 	class ClassBase : public UMLNode
 	{
-	public:
-
-		typedef std::vector<std::shared_ptr<Member>> Members;
-
 	protected:
 
 		ClassBase(const std::string& kind, const std::string& other, const std::string& type);
@@ -20,11 +16,12 @@ namespace model
 	public:
 
 		virtual bool addMember(const std::shared_ptr<Member>& member);
+		Member::Vector getMembers() const override;
 
 		void render(Agraph_t* graph) override;
 
 	protected:
 
-		Members m_members;
+		Member::Vector m_members;
 	};
 }

@@ -30,6 +30,12 @@ namespace model
 	}
 
 	// ----------------------------------------------------------------------------------------- //
+	Member::Vector ClassBase::getMembers() const
+	{
+		return m_members;
+	}
+
+	// ----------------------------------------------------------------------------------------- //
 	void ClassBase::render(Agraph_t* graph)
 	{
 		// Sort Members

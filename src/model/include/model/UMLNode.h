@@ -1,5 +1,6 @@
 #pragma once
 #include "model/UMLEntity.h"
+#include "model/Member.h"
 
 namespace model
 {
@@ -24,6 +25,7 @@ namespace model
 		Agnode_t* getNode() const;
 
 		virtual DefinitionType getDefinitionType() const;
+		virtual Member::Vector getMembers() const;
 
 	protected:
 

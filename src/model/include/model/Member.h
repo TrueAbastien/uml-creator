@@ -16,6 +16,8 @@ namespace model
 			__size__
 		};
 
+		typedef std::vector<std::shared_ptr<Member>> Vector;
+
 	protected:
 
 		Visibility m_visibility;
@@ -25,6 +27,7 @@ namespace model
 	public:
 
 		virtual uint8_t memberTypeID() const = 0;
+		std::string getName() const;
 
 	protected:
 

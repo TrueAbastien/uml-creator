@@ -24,4 +24,10 @@ namespace model
 	{
 		return DefinitionType::CONCRETE;
 	}
+
+	// ----------------------------------------------------------------------------------------- //
+	Member::Vector UMLNode::getMembers() const
+	{
+		return Member::Vector(0);
+	}
 }
