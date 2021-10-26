@@ -19,20 +19,20 @@ namespace view
 	}
 
 	// ----------------------------------------------------------------------------------------- //
-	void LayoutBase::notify(const NOTIFICATION_DATA& data)
-	{
-		if (m_target != nullptr)
-		{
-			m_target->notify(data);
-		}
-	}
-
-	// ----------------------------------------------------------------------------------------- //
 	std::string LayoutBase::awaits(const std::string& msg) const
 	{
 		std::cout << msg;
 		std::string result;
 		std::cin >> result;
 		return result;
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	void LayoutBase::notify(const NOTIFICATION_DATA& data)
+	{
+		if (m_target != nullptr)
+		{
+			m_target->notify(data);
+		}
 	}
 }

@@ -6,9 +6,11 @@ namespace controller
 {
 	class InputProcessBase
 	{
-	public:
+	protected:
 
 		InputProcessBase(UMLController* controller);
+
+	public:
 
 		virtual int Process() = 0;
 

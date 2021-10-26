@@ -13,6 +13,7 @@ namespace view
 		LayoutBase(core::Observable<NOTIFICATION_DATA>* target);
 
 		void draw();
+		std::string awaits(const std::string& msg) const;
 
 	private:
 
@@ -21,7 +22,6 @@ namespace view
 	protected:
 
 		void notify(const NOTIFICATION_DATA& data);
-		std::string awaits(const std::string& msg) const;
 
 		virtual std::string headerMessage() const = 0;
 		virtual void render() = 0;

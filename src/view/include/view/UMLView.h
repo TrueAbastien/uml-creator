@@ -12,6 +12,7 @@ namespace view
 		UMLView();
 
 		template <typename T> void setLayout();
+		std::string ask(const std::string& message) const;
 
 	private:
 
