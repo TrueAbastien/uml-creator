@@ -16,6 +16,7 @@ namespace model
 
 			void render(Agraph_t* graph) override;
 			std::string toString() const;
+			std::string getName() const;
 
 		private:
 
@@ -29,6 +30,8 @@ namespace model
 		UMLEnumeration(const std::string& type);
 
 		void render(Agraph_t* graph) override;
+
+		bool add(const std::shared_ptr<Item>& item);
 
 	private:
 

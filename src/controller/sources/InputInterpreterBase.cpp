@@ -12,7 +12,13 @@ namespace controller
 			auto result = m_processMap.find(data);
 			if (result != m_processMap.end())
 			{
-				return result->second->get()->Process();
+				do
+				{
+					ec = result->second->get()->Process();
+				}
+				while (ec > 0);
+
+				return ec;
 			}
 			else return -1;
 		}

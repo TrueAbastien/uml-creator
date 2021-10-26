@@ -15,9 +15,11 @@ namespace controller
 
 		InputParentProcess(UMLController* controller);
 
-		virtual int InternalProcess() = 0;
+		virtual int PreProcess() = 0;
+		virtual int PostProcess() = 0;
 
 		bool setProcessID(const std::string& id);
+		void awaitsID();
 
 	public:
 

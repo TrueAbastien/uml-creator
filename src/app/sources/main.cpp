@@ -28,8 +28,8 @@ int main(int argc, char** argv)
         std::shared_ptr<model::UMLAbstractClass> animal_abs_class = std::make_shared<model::UMLAbstractClass>("Animal");
         animal_abs_class->addMember(std::make_shared<model::ClassField>("speccy", "string", model::Member::Visibility::PROTECTED, animal_abs_class->getType()));
         std::shared_ptr<model::Method> foo = std::make_shared<model::Method>("foo", "void", model::Member::Visibility::PROTECTED, animal_abs_class->getType());
-        foo->addParam("int", "v1");
-        foo->addParam("int", "v2");
+        foo->addParam(std::make_shared<model::Parameter>("int", "Animal", "v1"));
+        foo->addParam(std::make_shared<model::Parameter>("int", "Animal", "v2"));
         animal_abs_class->addMember(foo);
         diagram->addEntity(animal_abs_class);
 

@@ -16,7 +16,7 @@ namespace model
 
 		Method(const std::string& name, const std::string& type, const Visibility& visibility, const std::string& className);
 
-		bool addParam(const std::string& type, const std::string& name = "");
+		bool addParam(const std::shared_ptr<Parameter>& param);
 		//
 
 		std::string toString() const override;

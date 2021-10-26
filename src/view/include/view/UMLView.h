@@ -13,6 +13,7 @@ namespace view
 
 		template <typename T> void setLayout();
 		std::string ask(const std::string& message) const;
+		void display(const std::string& message);
 
 	private:
 

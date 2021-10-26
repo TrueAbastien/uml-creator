@@ -8,22 +8,20 @@ namespace model
 	}
 
 	// ----------------------------------------------------------------------------------------- //
-	bool Method::addParam(const std::string& type, const std::string& name)
+	bool Method::addParam(const std::shared_ptr<Parameter>& param)
 	{
-		std::shared_ptr<Parameter> newParam = std::make_shared<Parameter>(type, m_className + "." + m_name, name);
-
 		if (!m_parameters.empty())
 		{
-			for (auto param : m_parameters)
+			for (auto p : m_parameters)
 			{
-				if (param->isEquals(newParam))
+				if (p->isEquals(param))
 				{
 					return false;
 				}
 			}
 		}
 
-		m_parameters.push_back(newParam);
+		m_parameters.push_back(param);
 		return true;
 	}
 

@@ -28,6 +28,18 @@ namespace controller
     }
 
     // ----------------------------------------------------------------------------------------- //
+    view::ViewPtr UMLController::getView() const
+    {
+        return m_view;
+    }
+
+    // ----------------------------------------------------------------------------------------- //
+    model::ModelPtr UMLController::getModel() const
+    {
+        return m_model;
+    }
+
+    // ----------------------------------------------------------------------------------------- //
     bool UMLController::verifyInput(NOTIFICATION_DATA& data)
     {
         // TODO

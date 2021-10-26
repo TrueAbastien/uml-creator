@@ -19,16 +19,29 @@ namespace controller
 	}
 
 	// ----------------------------------------------------------------------------------------- //
+	void InputParentProcess::awaitsID()
+	{
+		std::string cmd;
+		do { cmd = input(">"); }
+		while (!setProcessID(cmd));
+	}
+
+	// ----------------------------------------------------------------------------------------- //
 	int InputParentProcess::Process()
 	{
-		int ec = InternalProcess();
+		int ec = PreProcess();
 		if (ec == 0)
 		{
 			if (!m_processID.empty())
 			{
-				return m_children[m_processID]->Process();
+				do
+				{
+					ec = m_children[m_processID]->Process();
+				}
+				while (ec > 0);
 			}
-			return -1;
+
+			return PostProcess();
 		}
 		return ec;
 	}

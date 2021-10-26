@@ -26,6 +26,9 @@ namespace controller
 
 		void update(const NOTIFICATION_DATA& data) override;
 
+		view::ViewPtr getView() const;
+		model::ModelPtr getModel() const;
+
 	protected:
 
 		bool verifyInput(NOTIFICATION_DATA& data);

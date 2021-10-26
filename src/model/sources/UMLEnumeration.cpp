@@ -19,6 +19,12 @@ namespace model
 	}
 
 	// ----------------------------------------------------------------------------------------- //
+	std::string UMLEnumeration::Item::getName() const
+	{
+		return m_name;
+	}
+
+	// ----------------------------------------------------------------------------------------- //
 	UMLEnumeration::UMLEnumeration(const std::string& type)
 		: UMLNode("enum", type, type)
 	{
@@ -38,5 +44,20 @@ namespace model
 
 		m_node = agnode(graph, &m_type[0], 1);
 		agsafeset(m_node, (char*)"label", result.c_str(), (char*)"");
+	}
+
+	// ----------------------------------------------------------------------------------------- //
+	bool UMLEnumeration::add(const std::shared_ptr<Item>& item)
+	{
+		for (auto it : m_items)
+		{
+			if (it->getName() == item->getName())
+			{
+				return false;
+			}
+		}
+
+		m_items.push_back(item);
+		return true;
 	}
 }
