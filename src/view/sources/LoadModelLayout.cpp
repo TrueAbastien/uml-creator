@@ -5,7 +5,7 @@ namespace view
 	std::string LoadModelLayout::headerMessage() const
 	{
 		return
-			"-= Creating Model =-\n";
+			"-= Load Model =-\n";
 	}
 
 	// ----------------------------------------------------------------------------------------- //
