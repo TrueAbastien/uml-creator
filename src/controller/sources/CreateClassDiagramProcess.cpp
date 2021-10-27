@@ -20,9 +20,6 @@ namespace controller
 			return 2;
 		}
 
-		// Get Input
-		awaitsID();
-
 		return 0;
 	}
 

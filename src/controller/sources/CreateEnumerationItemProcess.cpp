@@ -2,7 +2,7 @@
 
 namespace controller
 {
-	CreateEnumerationItemProcess::CreateEnumerationItemProcess(UMLController* controller, const std::shared_ptr<model::UMLEnumeration>& enumeration, const std::shared_ptr<model::UMLDiagram>& diagram)
+	CreateEnumerationItemProcess::CreateEnumerationItemProcess(UMLController* controller, std::shared_ptr<model::UMLEnumeration>* enumeration, const std::shared_ptr<model::UMLDiagram>& diagram)
 		: InputProcessBase(controller), m_enumeration(enumeration), m_diagram(diagram)
 	{
 	}
@@ -19,14 +19,13 @@ namespace controller
 		}
 
 		// Verify Unique
-		auto item = std::make_shared<model::UMLEnumeration::Item>(name, m_enumeration->getType());
-		if (!m_enumeration->add(item))
+		auto item = std::make_shared<model::UMLEnumeration::Item>(name, (*m_enumeration)->getType());
+		if (!(*m_enumeration)->add(item) || !m_diagram->addEntity(item))
 		{
 			debug("'" + name + "' item already exists...");
 			return 2;
 		}
 
-		m_diagram->addEntity(item);
 		return 0;
 	}
 }

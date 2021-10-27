@@ -2,7 +2,7 @@
 
 namespace controller
 {
-	CreateMethodParameterProcess::CreateMethodParameterProcess(UMLController* controller, const std::shared_ptr<model::Method>& method, const std::shared_ptr<model::UMLDiagram>& diagram)
+	CreateMethodParameterProcess::CreateMethodParameterProcess(UMLController* controller, std::shared_ptr<model::Method>* method, const std::shared_ptr<model::UMLDiagram>& diagram)
 		: InputProcessBase(controller), m_method(method), m_diagram(diagram)
 	{
 	}
@@ -27,14 +27,13 @@ namespace controller
 		}
 
 		// Verify Type
-		auto param = std::make_shared<model::Parameter>(type, m_method->getName(), name);
-		if (!m_method->addParam(param))
+		auto param = std::make_shared<model::Parameter>(type, (*m_method)->getName(), name);
+		if (!(*m_method)->addParam(param) ||!m_diagram->addEntity(param))
 		{
 			debug("Parameter already exists...");
 			return 3;
 		}
 
-		m_diagram->addEntity(param);
 		return 0;
 	}
 }

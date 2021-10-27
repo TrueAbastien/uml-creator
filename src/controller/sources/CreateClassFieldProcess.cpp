@@ -2,7 +2,7 @@
 
 namespace controller
 {
-	CreateClassFieldProcess::CreateClassFieldProcess(UMLController* controller, const std::shared_ptr<model::ClassBase>& class_base, const std::shared_ptr<model::UMLDiagram>& diagram)
+	CreateClassFieldProcess::CreateClassFieldProcess(UMLController* controller, std::shared_ptr<model::ClassBase>* class_base, const std::shared_ptr<model::UMLDiagram>& diagram)
 		: InputProcessBase(controller), m_class(class_base), m_diagram(diagram)
 	{
 	}
@@ -39,14 +39,13 @@ namespace controller
 		}
 		
 		// Verify Field
-		auto field = std::make_shared<model::ClassField>(name, type, visibility, m_class->getType());
-		if (!m_class->addMember(field))
+		auto field = std::make_shared<model::ClassField>(name, type, visibility, (*m_class)->getType());
+		if (!(*m_class)->addMember(field) || !m_diagram->addEntity(field))
 		{
 			debug("Field already exists...");
 			return 4;
 		}
 
-		m_diagram->addEntity(field);
 		return 0;
 	}
 }

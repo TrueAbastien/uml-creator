@@ -30,8 +30,11 @@ namespace controller
 	int InputParentProcess::Process()
 	{
 		int ec = PreProcess();
+
 		if (ec == 0)
 		{
+			awaitsID();
+
 			if (!m_processID.empty())
 			{
 				do

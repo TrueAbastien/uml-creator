@@ -9,13 +9,13 @@ namespace controller
 	{
 	public:
 
-		CreateMethodParameterProcess(UMLController* controller, const std::shared_ptr<model::Method>& method, const std::shared_ptr<model::UMLDiagram>& diagram);
+		CreateMethodParameterProcess(UMLController* controller, std::shared_ptr<model::Method>* method, const std::shared_ptr<model::UMLDiagram>& diagram);
 
 		int Process() override;
 
 	private:
 
-		std::shared_ptr<model::Method> m_method;
+		std::shared_ptr<model::Method>* m_method;
 		std::shared_ptr<model::UMLDiagram> m_diagram;
 	};
 }
