@@ -8,13 +8,13 @@ namespace controller
 	{
 	public:
 
-		CreateEnumerationItemProcess(UMLController* controller, std::shared_ptr<model::UMLEnumeration>* enumeration, const std::shared_ptr<model::UMLDiagram>& diagram);
+		CreateEnumerationItemProcess(UMLController* controller, std::shared_ptr<model::UMLEnumeration>* enumeration, std::shared_ptr<model::UMLDiagram>* diagram);
 
 		int Process() override;
 
 	private:
 
 		std::shared_ptr<model::UMLEnumeration>* m_enumeration;
-		std::shared_ptr<model::UMLDiagram> m_diagram;
+		std::shared_ptr<model::UMLDiagram>* m_diagram;
 	};
 }

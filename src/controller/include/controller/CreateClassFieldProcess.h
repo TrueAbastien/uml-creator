@@ -9,13 +9,13 @@ namespace controller
 	{
 	public:
 
-		CreateClassFieldProcess(UMLController* controller, std::shared_ptr<model::ClassBase>* class_base, const std::shared_ptr<model::UMLDiagram>& diagram);
+		CreateClassFieldProcess(UMLController* controller, std::shared_ptr<model::ClassBase>* class_base, std::shared_ptr<model::UMLDiagram>* diagram);
 
 		int Process() override;
 
 	private:
 
 		std::shared_ptr<model::ClassBase>* m_class;
-		std::shared_ptr<model::UMLDiagram> m_diagram;
+		std::shared_ptr<model::UMLDiagram>* m_diagram;
 	};
 }

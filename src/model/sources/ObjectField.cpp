@@ -10,7 +10,7 @@ namespace model
 	// ----------------------------------------------------------------------------------------- //
 	std::string ObjectField::toString() const
 	{
-		return visibility_string() + " " + m_name + ":" + m_type + "=" + m_value;
+		return visibility_string() + " " + m_name + ":" + m_type + (m_value.empty() ? "" : "=" + m_value);
 	}
 
 	// ----------------------------------------------------------------------------------------- //

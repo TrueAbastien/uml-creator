@@ -22,7 +22,19 @@ namespace model
     }
 
     // ----------------------------------------------------------------------------------------- //
-    bool UMLModel::add(const std::shared_ptr<UMLDiagram>& diagram)
+    bool UMLModel::add(const std::shared_ptr<ClassDiagram>& diagram)
+    {
+        if (!exists(diagram))
+        {
+            m_diagrams.push_back(diagram);
+            m_classModel = diagram;
+            return true;
+        }
+        return false;
+    }
+
+    // ----------------------------------------------------------------------------------------- //
+    bool UMLModel::add(const std::shared_ptr<ObjectDiagram>& diagram)
     {
         if (!exists(diagram))
         {
@@ -36,5 +48,11 @@ namespace model
     UMLModel::Diagrams UMLModel::getDiagrams() const
     {
         return m_diagrams;
+    }
+
+    // ----------------------------------------------------------------------------------------- //
+    std::shared_ptr<ClassDiagram> UMLModel::getClassModel() const
+    {
+        return m_classModel;
     }
 }

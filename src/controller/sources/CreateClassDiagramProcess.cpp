@@ -36,7 +36,6 @@ namespace controller
 		}
 
 		// TODO: Object Menu Interpreter
-		// TODO: Set Model
 		return 0;
 	}
 

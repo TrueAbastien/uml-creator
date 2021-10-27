@@ -3,7 +3,9 @@
 namespace model
 {
 	AssociationLink::AssociationLink(const std::shared_ptr<UMLNode>& origin, const std::shared_ptr<UMLNode>& target, const Cardinal& originCardinal, const Cardinal& targetCardinal)
-		: m_originCardinal(originCardinal), m_targetCardinal(targetCardinal), UMLLink(origin, target, "association", origin->getLinkUID() + "." + target->getLinkUID())
+		: m_originCardinal(originCardinal), m_targetCardinal(targetCardinal), UMLLink(origin, target, "association",
+			(originCardinal.getTag().empty() && targetCardinal.getTag().empty() ? newUID() :
+				origin->getLinkUID() + "." + target->getLinkUID() + "." + originCardinal.getTag() + "." + targetCardinal.getTag()))
 	{
 	}
 
